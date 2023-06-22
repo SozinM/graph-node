@@ -63,3 +63,30 @@ templates:
           file: ./abis/Contract.abi
       handler: handleFile1
       file: ./src/mapping.ts
+  - kind: file/ipfs
+    name: File3
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - IpfsFile3
+      abis:
+        - name: Contract
+          file: ./abis/Contract.abi
+      handler: handleFile3
+      file: ./src/mapping.ts
+  - kind: file/ipfs
+    name: File4
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - IpfsFile4
+        - IpfsFile3
+      abis:
+        - name: Contract
+          file: ./abis/Contract.abi
+      handler: handleFile3
+      file: ./src/mapping.ts

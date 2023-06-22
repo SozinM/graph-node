@@ -24,6 +24,7 @@ use graph::data::query::{Query, QueryTarget};
 use graph::data::subgraph::schema::{SubgraphError, SubgraphHealth};
 use graph::env::EnvVars;
 use graph::ipfs_client::IpfsClient;
+use graph::log::logger;
 use graph::prelude::ethabi::ethereum_types::H256;
 use graph::prelude::serde_json::{self, json};
 use graph::prelude::{
@@ -496,7 +497,7 @@ pub async fn wait_for_sync(
                 continue;
             }
         };
-
+        info!(logger, "TEST: sync status: {:?}", block_ptr);
         let status = store.status_for_id(deployment.id);
 
         if let Some(fatal_error) = status.fatal_error {
